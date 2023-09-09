@@ -52,10 +52,11 @@ def createwordcloud(selected_user, df):
     file = open('stop_spanish.txt', 'r')
     stopwords = file.read()
     stopwords = stopwords.split('\n')
-    words = []
+    wc = WordCloud(width=500, height=500,
+                   min_font_size=10, background_color='white')
     if selected_user != 'Overall':
         df = df[df['User'] == selected_user]
-        
+        words = []
         
         
         for message in df['Message']:
@@ -63,11 +64,10 @@ def createwordcloud(selected_user, df):
                 if word not in stopwords:
                     words.append(word)
         
-    wc = WordCloud(width=500, height=500,
-                   min_font_size=10, background_color='white')
-
-    df_wc = wc.generate(str(words))
-
+        
+    
+        df_wc = wc.generate(str(words))
+    df_wc = wc.generate(df['Message'].str.cat(sep=" "))
     return df_wc
 
 
