@@ -18,6 +18,7 @@ if uploaded_file is not None:
     # converting the bytecode to the text-file
 
     data = bytes_data.decode("utf-8")
+    data = data.split('\n')
 
     # sending the file data to the preprocess function for further functioning
 
