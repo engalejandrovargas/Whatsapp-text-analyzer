@@ -52,6 +52,5 @@ def preprocess(data):
     df['Hour'] = pd.to_datetime(df['Time']).dt.hour
     df['Minute'] = pd.to_datetime(df['Time']).dt.minute
 
-    word_to_drop = '<Media omitted>'
-    df = df[~df['Message'].str.contains(word_to_drop)]
+ 
     return df
