@@ -52,11 +52,11 @@ def createwordcloud(selected_user, df):
     file = open('stop_spanish.txt', 'r')
     stopwords = file.read()
     stopwords = stopwords.split('\n')
-    
+    words = []
     if selected_user != 'Overall':
         df = df[df['User'] == selected_user]
         
-        words = []
+        
         
         for message in df['Message']:
             for word in message.lower().split():
