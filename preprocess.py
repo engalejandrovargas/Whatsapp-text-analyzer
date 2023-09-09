@@ -51,4 +51,7 @@ def preprocess(data):
     df['Day_name'] = pd.to_datetime(df['Date']).dt.day_name()
     df['Hour'] = pd.to_datetime(df['Time']).dt.hour
     df['Minute'] = pd.to_datetime(df['Time']).dt.minute
+
+    word_to_drop = 'ommited'
+    df = df[~df['Message'].str.contains(word_to_drop)]
     return df
