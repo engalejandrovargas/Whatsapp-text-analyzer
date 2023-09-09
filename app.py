@@ -97,11 +97,6 @@ if uploaded_file is not None:
         st.title('Most commmon words')
         st.pyplot(fig)
 
-        # Emoji Analysis
-
-        emoji_df = stats.getemojistats(selected_user, df)
-        emoji_df.columns = ['Emoji', 'Count']
-
         # Monthly timeline
 
         st.title("Monthly Timeline")
