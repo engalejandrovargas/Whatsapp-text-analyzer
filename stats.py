@@ -45,18 +45,28 @@ def fetchbusyuser(df):
 
 
 def createwordcloud(selected_user, df):
+    
     word_to_drop = '<Media omitted>'
     df = df[~df['Message'].str.contains(word_to_drop)]
     
-   
+    file = open('stop_spanish.txt', 'r')
+    stopwords = file.read()
+    stopwords = stopwords.split('\n')
+    
     if selected_user != 'Overall':
         df = df[df['User'] == selected_user]
-
+        
+        words = []
+        
+        for message in df['Message']:
+            for word in message.lower().split():
+                if word not in stopwords:
+                    words.append(word)
         
     wc = WordCloud(width=500, height=500,
                    min_font_size=10, background_color='white')
 
-    df_wc = wc.generate(df['Message'].str.cat(sep=" "))
+    df_wc = wc.generate(words)
 
     return df_wc
 
