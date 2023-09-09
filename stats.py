@@ -45,11 +45,12 @@ def fetchbusyuser(df):
 
 
 def createwordcloud(selected_user, df):
-
+    word_to_drop = '<Media omitted>'
+    df = df[~df['Message'].str.contains(word_to_drop)]
+    
     if selected_user != 'Overall':
         df = df[df['User'] == selected_user]
-        word_to_drop = '<Media omitted>'
-        df = df[~df['Message'].str.contains(word_to_drop)]
+        
     wc = WordCloud(width=500, height=500,
                    min_font_size=10, background_color='white')
 
@@ -62,7 +63,8 @@ def createwordcloud(selected_user, df):
 # most common words
 
 def getcommonwords(selecteduser, df):
-
+    word_to_drop = '<Media omitted>'
+    df = df[~df['Message'].str.contains(word_to_drop)]
     # getting the stopwords
 
     file = open('stop_spanish.txt', 'r')
