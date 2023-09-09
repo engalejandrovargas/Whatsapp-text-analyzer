@@ -43,6 +43,9 @@ def preprocess(data):
     }
 
     df = pd.DataFrame(data)
+    date_format = "%d/%m/%y"
+    df['Date'] = df['Date'].apply(lambda x: dt.datetime.strptime(x, date_format))
+    
     df['Only date'] = pd.to_datetime(df['Date']).dt.date
     df['Year'] = pd.to_datetime(df['Date']).dt.year
     df['Month_num'] = pd.to_datetime(df['Date']).dt.month
