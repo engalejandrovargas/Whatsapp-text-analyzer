@@ -15,7 +15,7 @@ def fetchstats(selected_user, df):
 
     if selected_user != 'Overall':
         df = df[df['User'] == selected_user]
-
+       
     num_messages = df.shape[0]
     words = []
     for message in df['Message']:
@@ -48,7 +48,8 @@ def createwordcloud(selected_user, df):
 
     if selected_user != 'Overall':
         df = df[df['User'] == selected_user]
-
+        word_to_drop = '<Media omitted>'
+        df = df[~df['Message'].str.contains(word_to_drop)]
     wc = WordCloud(width=500, height=500,
                    min_font_size=10, background_color='white')
 
@@ -70,6 +71,8 @@ def getcommonwords(selecteduser, df):
 
     if selecteduser != 'Overall':
         df = df[df['User'] == selecteduser]
+        word_to_drop = '<Media omitted>'
+        df = df[~df['Message'].str.contains(word_to_drop)]
 
     temp = df[(df['User'] != 'Group Notification') |
               (df['User'] != '<Media omitted>')]
