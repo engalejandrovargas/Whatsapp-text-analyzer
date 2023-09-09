@@ -65,7 +65,7 @@ def getcommonwords(selecteduser, df):
 
     # getting the stopwords
 
-    file = open('stop_hinglish.txt', 'r')
+    file = open('stop_spanish.txt', 'r')
     stopwords = file.read()
     stopwords = stopwords.split('\n')
 
@@ -84,20 +84,6 @@ def getcommonwords(selecteduser, df):
 
     mostcommon = pd.DataFrame(Counter(words).most_common(20))
     return mostcommon
-
-
-def getemojistats(selecteduser, df):
-
-    if selecteduser != 'Overall':
-        df = df[df['User'] == selecteduser]
-
-    emojis = []
-    for message in df['Message']:
-        emojis.extend([c for c in message if c in emoji.UNICODE_EMOJI['en']])
-
-    emojidf = pd.DataFrame(Counter(emojis).most_common(len(Counter(emojis))))
-
-    return emojidf
 
 
 def monthtimeline(selecteduser, df):
