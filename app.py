@@ -18,7 +18,7 @@ if uploaded_file is not None:
     df = preprocess.preprocess(data)
     # displaying the dataframe
 
-    st.dataframe(df)
+    # st.dataframe(df)
 
     # fetch unique users
     user_list = df['User'].unique().tolist()
