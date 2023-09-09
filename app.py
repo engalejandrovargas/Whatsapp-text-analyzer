@@ -78,7 +78,7 @@ if uploaded_file is not None:
             st.title('Most Busy Users')
             busycount, newdf = stats.fetchbusyuser(df)
             fig, ax = plt.subplots()
-            col1, col2 = st.beta_columns(2)
+            col1, col2 = st.columns(2)
             with col1:
                 ax.bar(busycount.index, busycount.values, color='red')
                 plt.xticks(rotation='vertical')
@@ -123,7 +123,7 @@ if uploaded_file is not None:
 
         st.title("Activity Maps")
 
-        col1, col2 = st.beta_columns(2)
+        col1, col2 = st.columns(2)
 
         with col1:
 
