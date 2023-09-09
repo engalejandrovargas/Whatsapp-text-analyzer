@@ -38,7 +38,6 @@ def fetchstats(selected_user, df):
 
 def fetchbusyuser(df):
 
-    df = df[df['User'] != 'Group Notification']
     count = df['User'].value_counts().head()
 
     newdf = pd.DataFrame((df['User'].value_counts()/df.shape[0])*100)
