@@ -30,10 +30,6 @@ if uploaded_file is not None:
     # fetch unique users
     user_list = df['User'].unique().tolist()
 
-    # removing the groupnotification
-
-    user_list.remove('Group Notification')
-
     # organinsing things
     user_list.sort()
 
@@ -112,18 +108,6 @@ if uploaded_file is not None:
 
         emoji_df = stats.getemojistats(selected_user, df)
         emoji_df.columns = ['Emoji', 'Count']
-
-        st.title("Emoji Analysis")
-
-        col1, col2 = st.beta_columns(2)
-
-        with col1:
-            st.dataframe(emoji_df)
-        with col2:
-            emojicount = list(emoji_df['Count'])
-            perlist = [(i/sum(emojicount))*100 for i in emojicount]
-            emoji_df['Percentage use'] = np.array(perlist)
-            st.dataframe(emoji_df)
 
         # Monthly timeline
 
