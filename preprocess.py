@@ -43,4 +43,12 @@ def preprocess(data):
     }
 
     df = pd.DataFrame(data)
+    df['Only date'] = pd.to_datetime(df['Date']).dt.date
+    df['Year'] = pd.to_datetime(df['Date']).dt.year
+    df['Month_num'] = pd.to_datetime(df['Date']).dt.month
+    df['Month'] = pd.to_datetime(df['Date']).dt.month_name()
+    df['Day'] = pd.to_datetime(df['Date']).dt.day
+    df['Day_name'] = pd.to_datetime(df['Date']).dt.day_name()
+    df['Hour'] = pd.to_datetime(df['Time']).dt.hour
+    df['Minute'] = pd.to_datetime(df['Time']).dt.minute
     return df
