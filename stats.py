@@ -66,7 +66,7 @@ def createwordcloud(selected_user, df):
     wc = WordCloud(width=500, height=500,
                    min_font_size=10, background_color='white')
 
-    df_wc = wc.generate(words)
+    df_wc = wc.generate(str(words))
 
     return df_wc
 
