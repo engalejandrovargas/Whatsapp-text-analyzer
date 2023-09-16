@@ -1,0 +1,19 @@
+# Python files
+*.pyc
+*.pyo
+*.egg
+*.egg-info/
+
+# Virtual environment
+venv/
+__pycache__/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# IDE files
+.idea/
+*.swp
+*.swo
+*.swn
+.DS_Store
