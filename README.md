@@ -1,7 +1,8 @@
 # Whatsapp-text-analyzer
 
 In this project we analyze the text of a whatsApp conversation using the export txt file without media from the app.
-The project was deployed using strimlit and you can use it from this URL: https://alejandro.streamlit.app/
+The project was deployed using strimlit and you can use it from this URL: https://alejandro.streamlit.app/ (be aware that the app is sleeping and need to wake up from my side in strimlit, so it would look like raw HTML).
+
 
 ![](https://github.com/engalejandrovargas/Whatsapp-text-analyzer/blob/main/Showcase.gif)
 
